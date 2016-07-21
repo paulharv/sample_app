@@ -10,5 +10,5 @@ class User < ApplicationRecord
 
 	before_save { self.email = email.downcase }	
 
-	has_secure_password
+	has_secure_password allow_nil:true
 end

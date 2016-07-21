@@ -1,0 +1,78 @@
+=== Generate ===
+rails g model Thing attr1:integer attr2:string
+rails g migration name_of_migration
+
+
+
+
+=== Migrations ===
+rails db:migrate
+rails db:rollback
+rails db:migrate VERSION=0
+rails db:migrate:reset
+
+class AddUserIdToBlob < ActiveRecord::Migration[5.0]
+  def change
+  	add_column :blobs, :user_id, :integer
+  end
+end
+
+def change
+    add_index :users, :email, unique: true
+end
+
+
+
+=== Tests ===
+rails test
+rails test:models
+rails test:controllers
+
+
+=== form_for ===
+http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html
+<% form_for(@user) do |f| %>
+	f.label :attr
+	f.text_field :attr
+	f.password_field :attr
+	f.email_field :attr
+	f.check_box :attr
+	f.check_box 
+	f.radio_button
+	f.date_field
+	f.hidden_field
+
+	f.submit
+
+<% end %>
+
+params.require(:model).permit(:attr_one, :attr_two)
+
+
+=== Validations ===
+validates :attr presence:true
+validates :attr length:{maximum:100,minimum:10}
+validates :attr format:{with:/someregex/}
+validates :attr uniqueness
+validates :attr uniqueness:{case_sensitive:false}
+
+
+=== rvm ===
+.ruby_version <== ruby-2.3.0
+
+
+=== github ===
+Create repo on site, then...
+git remote add origin https://github.com/paulharv/sample_app.git
+
+
+=== heroku ===
+heroku --version (updates)
+heroku create
+git push heroku master
+heroku run rails db:migrate
+heroku run console
+
+
+
+
